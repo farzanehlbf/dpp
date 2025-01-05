@@ -2,7 +2,7 @@
 
 namespace Src\solid\ocp;
 
-class XmlEncoder
+class XmlEncoder implements EncoderInterface
 {
 
     public function __construct()

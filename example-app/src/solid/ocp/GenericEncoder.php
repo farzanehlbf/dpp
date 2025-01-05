@@ -1,21 +1,21 @@
 <?php
 
 namespace Src\solid\ocp;
-
-use http\Exception\InvalidArgumentException;
-
 class GenericEncoder
 {
+    private $encoderFactory;
+
+    /**
+     * @param $EncoderFactoryInterface
+     */
+    public function __construct(EncoderFactoryInterface $encoderFactory)
+    {
+        $this->encoderFactory = $encoderFactory;
+    }
+
     public function encoder($data,string $format): string
     {
-        if ($format == 'json') {
-             $encoder= new JsonEncoder();
-
-        }elseif ($format == 'xml') {
-             $encoder= new XmlEncoder();
-        }else{
-            throw new InvalidArgumentException('format not supported');
-        }
+        $encoder=$this->encoderFactory->createEncoder($format);
         return $encoder->encode($data);
     }
 

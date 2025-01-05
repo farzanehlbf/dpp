@@ -2,7 +2,7 @@
 
 namespace Src\solid\ocp;
 
-class JsonEncoder
+class JsonEncoder implements EncoderInterface
 {
 
     public function __construct()
