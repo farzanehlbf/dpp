@@ -5,23 +5,23 @@ namespace Src\solid\srp;
 
 class ConfirmationMailMailer
 {
-    private $templating; //رندر کردن متن ایمیل
-    private $translator;//ترجمه کردن متن ایمیل
+
     private $mailer;// فرستادن ایمیل
+    private $confirmationMailFactory;
 
     /**
-     * @param $templating
-     * @param $translator
      * @param $mailer
+     * @param $confirmationMailFactory
      */
     public function __construct(
-        TemplatingEnginInterface $templating,
-        TranslatorInterface $translator,
-        MailerInterface    $mailer)
+
+        MailerInterface    $mailer,
+        ConfirmationMailFactory $confirmationMailFactory
+    )
     {
-        $this->templating = $templating;
-        $this->translator = $translator;
+
         $this->mailer = $mailer;
+        $this->confirmationMailFactory = $confirmationMailFactory;
     }
 
     public function sendTo(User $user)
@@ -30,16 +30,12 @@ class ConfirmationMailMailer
         $this->sendMessage($message);
 
     }
-
-
-    private function createMessageFor(User $user):Message
+    public function createMessageFor(User $user):Message
     {
-        $subject=$this->translator->translate('please confirm your email address');
-        $body=$this->templating->render('email.confirm',[
-            'confirm_code'=>$user->getCOnfirmCode()
-        ]);
-        return new Message($subject,$body,$user->getEmaiAddress());
+        return $this->confirmationMailFactory->createMessageFor($user);
     }
+
+
 
     private function sendMessage(Message $message)
     {
