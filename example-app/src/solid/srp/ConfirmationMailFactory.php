@@ -20,7 +20,7 @@ class ConfirmationMailFactory
 
     public function createMessageFor(User $user):Message
     {
-        $subject=$this->translator->translate('please confirm your email address');
+        $subject=$this->tranlator->translate('please confirm your email address');
         $body=$this->templating->render('email.confirm',[
             'confirm_code'=>$user->getCOnfirmCode()
         ]);

@@ -36,4 +36,16 @@ class EncoderFactory implements EncoderFactoryInterface,EncoderFactoryConfigInte
     }*/
 
 
+
+//$encoderFactory = new EncoderFactory();
+
+//// ثبت فرمت‌ها
+//$encoderFactory->addEncoderFactory('json', JsonEncoder::class);
+//$encoderFactory->addEncoderFactory('xml', XmlEncoder::class);
+
+//// استفاده از فرمت‌ها
+//$jsonEncoder = $encoderFactory->createEncoder('json'); // خروجی: JsonEncoder
+//$xmlEncoder = $encoderFactory->createEncoder('xml');   // خروجی: XmlEncoder
+
+
 }
