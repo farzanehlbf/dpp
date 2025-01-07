@@ -22,8 +22,5 @@ class LocalFile implements FileInterface
 
 
   //این متد برای لوکال کار نمی کند روی سیستم نیازی به دانلود نیست
-    public function download()
-    {
-        // TODO: Implement download() method.
-    }
+
 }
