@@ -6,24 +6,24 @@ use http\Exception\RuntimeException;
 
 class Authentication
 {
-    private $connection;
+    private $userProvider;
 
     /**
-     * @param $connection
+     * @param UserProviderInterface $userProvider
      */
-    public function __construct(Connection $connection)
+    public function __construct(UserProviderInterface $userProvider)
     {
-        $this->connection = $connection;
+        $this->userProvider = $userProvider;
     }
 
     public function check(string $username, string $password): bool
     {
-        $user=$this->connection->query("SELECT * FROM `users` WHERE `username`='$username' AND `password`='$password'");
+        $user=$this->userProvider->findUser($username);
         if(!$user)
         {
             throw new RuntimeException('User not found');
         }
-
+        return true;
 
     }
 
