@@ -2,17 +2,16 @@
 
 namespace Src\solid\LSP;
 
-class FileService
+use http\Exception\InvalidArgumentException;
+
+class FileService implements FileServiceInterface
 {
-    private $file;
 
-    /**
-     * @param $file
-     */
-    public function __construct(FileInterface $file)//آگر لوکال بهش ارسال کنیم در زمان اجرا و دانلود را صدا بزنیم چون دانلود متدش خالیه با خطا مواجه می شویم
+
+    public function encode(EncodeableFileInterface $file)
     {
-        $this->file = $file;
+//        if (!($file instanceof LocalFile)) {
+//            throw new InvalidArgumentException('File must be an instance of LocalFile');
+//        }
     }
-
-
 }
