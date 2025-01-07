@@ -2,21 +2,7 @@
 
 namespace Src\solid\ISP;
 
-class WebSocketProvider implements Notifier
+interface WebSocketProvider
 {
-
-    public function sendSMS()
-    {
-        // TODO: Implement sendSMS() method.
-    }
-
-    public function sendEmail()
-    {
-        // TODO: Implement sendEmail() method.
-    }
-
-    public function sendWebSocket()
-    {
-        // TODO: Implement sendWebSocket() method.
-    }
+    public function sendWebSocket();
 }

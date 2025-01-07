@@ -2,21 +2,13 @@
 
 namespace Src\solid\ISP;
 
-class MailChipEmailProvider implements Notifier
+class MailChipEmailProvider implements EmailProvider
 {
 
-    public function sendSMS()
-    {
-        // TODO: Implement sendSMS() method.
-    }
 
     public function sendEmail()
     {
         // TODO: Implement sendEmail() method.
     }
 
-    public function sendWebSocket()
-    {
-        // TODO: Implement sendWebSocket() method.
-    }
 }

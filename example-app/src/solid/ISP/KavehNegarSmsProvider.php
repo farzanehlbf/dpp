@@ -2,7 +2,7 @@
 
 namespace Src\solid\ISP;
 
-class KavehNegarSmsProvider implements Notifier
+class KavehNegarSmsProvider implements SMSProvider
 {
 
     public function sendSMS()
@@ -10,13 +10,4 @@ class KavehNegarSmsProvider implements Notifier
         // TODO: Implement sendSMS() method.
     }
 
-    public function sendEmail()
-    {
-        // TODO: Implement sendEmail() method.
-    }
-
-    public function sendWebSocket()
-    {
-        // TODO: Implement sendWebSocket() method.
-    }
 }
